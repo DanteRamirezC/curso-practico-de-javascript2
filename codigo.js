@@ -5,16 +5,43 @@ const menuHamb = document.querySelector(".menu");
 const carShop = document.querySelector(".carrito");
 const card = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
+const cardAsideContainer = document.querySelector(".product-shop-card");
+const closeAsideContainer = document.querySelector(".product-shop-card-close");
 
+cardsContainer.addEventListener("click", openCard);
+closeAsideContainer.addEventListener("click", closeCard);
 
 navBarEmail.addEventListener("click", alternarDesktopMenu);
 menuHamb.addEventListener("click", alternarMobileMenu);
-carShop.addEventListener("click", alternarProductCard)
+carShop.addEventListener("click", alternarProductCard);
+
+function openCard() {
+    const isMobileClose = mobileMenu.classList.contains("inactive__mobile-menu");
+    if(!isMobileClose) {
+        mobileMenu.classList.add("inactive__mobile-menu")
+    }
+    const isDeskTopClose = card.classList.contains("inactive")
+    if(!isDeskTopClose) {
+        deskTopMenu.classList.add("inactive")
+    }
+    const isCardClose = card.classList.contains("inactive__product-detail")
+    if(!isCardClose) {
+        card.classList.add("inactive__product-detail")
+    }
+    cardAsideContainer.classList.remove("inactive");
+}
+function closeCard() {
+    cardAsideContainer.classList.add("inactive");
+}
 
 function alternarMobileMenu() {
     const isCardClose = card.classList.contains("inactive__product-detail")
     if(!isCardClose) {
         card.classList.add("inactive__product-detail")
+    }
+    const isCardAsideContainer = cardAsideContainer.classList.contains("inactive");
+    if(!isCardAsideContainer) {
+        cardAsideContainer.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive__mobile-menu");
 }
@@ -22,6 +49,10 @@ function alternarDesktopMenu() {
     const isCardClose = card.classList.contains("inactive__product-detail")
     if(!isCardClose) {
         card.classList.add("inactive__product-detail")
+    }
+    const isCardAsideContainer = cardAsideContainer.classList.contains("inactive");
+    if(!isCardAsideContainer) {
+        cardAsideContainer.classList.add("inactive");
     }
  
     deskTopMenu.classList.toggle("inactive");
@@ -34,6 +65,10 @@ function alternarProductCard() {
     const isMobileClose = mobileMenu.classList.contains("inactive__mobile-menu");
     if(!isMobileClose) {
         mobileMenu.classList.add("inactive__mobile-menu")
+    }
+    const isCardAsideContainer = cardAsideContainer.classList.contains("inactive");
+    if(!isCardAsideContainer) {
+        cardAsideContainer.classList.add("inactive");
     }
 
     card.classList.toggle("inactive__product-detail")
@@ -53,7 +88,7 @@ productList.push({
 productList.push({
     name: "televisor",
     price: 11000,
-    image: "https://images.samsung.com/is/image/samsung/p6pim/mx/un50au9000fxzx/gallery/mx-crystal-uhd-au9000-un50au9000fxzx-412358933?$720_576_PNG$"
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
 function renderProducts(arr) {
