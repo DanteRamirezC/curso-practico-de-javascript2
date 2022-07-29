@@ -119,6 +119,9 @@
     display: none;
   }
   .mobile-menu {
+    background: #f7f7f7e6;
+    padding-left: 10px;
+    padding-right: 20px;
     position: absolute;
     top: 60px;
   }
@@ -126,7 +129,6 @@
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    /* margin-bottom: 24px; */
   }
   .mobile-menu ul {
     padding: 0;
@@ -151,9 +153,10 @@
 .inactive__product-detail {
     display: none;
 }
-.product-detail {
+.product-detail { 
+    background: #f7f7f7e6;
     position: absolute;
-    top: 30px;
+    top: 61px;
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
