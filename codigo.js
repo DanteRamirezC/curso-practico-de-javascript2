@@ -73,6 +73,7 @@ function alternarProductCard() {
 
     card.classList.toggle("inactive__product-detail")
 }
+
 // product-list //
 const productList = [];
 productList.push({
